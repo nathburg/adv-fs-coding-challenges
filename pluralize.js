@@ -5,8 +5,7 @@ const pluralize = (words) => {
 		const word = words.pop();
 		const index = pluralized.indexOf(word);
 		if (index > -1) {
-			pluralized.splice(index, 1);
-			pluralized.push(word + 's');
+			pluralized.splice(index, 1, word + 's');
 		} else if (!pluralized.includes(word + 's')) pluralized.push(word);
 	}
 	return pluralized;
