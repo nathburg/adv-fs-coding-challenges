@@ -14,19 +14,24 @@ class Stack {
 	}
 
 	peek() {
-		return this.#array[this.#array.length - 1];
+		const stackTop = this.#array[this.#array.length - 1];
+		if (typeof stackTop === 'undefined') return 'empty';
+		return stackTop;
 	}
 }
 
-const stack = new Stack();
-stack.push('fox');
-stack.push('goose');
-stack.push('lizard');
-console.log('lizard = ', stack.pop()); // 'lizard'
-console.log('goose = ', stack.peek()); // 'goose'
-console.log('goose = ', stack.pop()); // 'goose'
-stack.push('llama');
-console.log('llama = ', stack.pop()); // 'llama'
-console.log('fox = ', stack.peek()); // 'fox'
-console.log('fox = ', stack.pop()); // 'fox'
-console.log('undefined = ', stack.pop()); // null
+// const stack = new Stack();
+// stack.push('fox');
+// stack.push('goose');
+// stack.push('lizard');
+// console.log('lizard = ', stack.pop()); // 'lizard'
+// console.log('goose = ', stack.peek()); // 'goose'
+// console.log('goose = ', stack.pop()); // 'goose'
+// stack.push('llama');
+// console.log('llama = ', stack.pop()); // 'llama'
+// console.log('fox = ', stack.peek()); // 'fox'
+// console.log('fox = ', stack.pop()); // 'fox'
+// console.log('undefined = ', stack.pop()); // null
+// console.log('empty = ', stack.peek());
+
+module.exports = Stack;
