@@ -1,7 +1,7 @@
 const pluralize = (words) => {
 	const length = words.length;
 	const pluralized = [];
-	for (let i = 0; i < length; i++) {
+	for (i = 0; i < length; i++) {
 		const word = words.pop();
 		const index = pluralized.indexOf(word);
 		if (index > -1) {
@@ -15,6 +15,6 @@ const pluralize = (words) => {
 console.log('["cows", "pig"]= ', pluralize(['cow', 'pig', 'cow', 'cow']));
 console.log('["tables"]= ', pluralize(['table', 'table', 'table']));
 console.log(
-	'["chair", "pencil", "arm"]= ',
+	'["arm", "pencil", "chair"]= ',
 	pluralize(['chair', 'pencil', 'arm'])
 );

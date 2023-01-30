@@ -1,7 +1,7 @@
 const changeEnough = (coinsArr, amount) => {
 	const coinValueArr = [25, 10, 5, 1];
 	let changeTotal = 0;
-	for (let i = 0; i < 4; ++i) {
+	for (i = 0; i < 4; ++i) {
 		changeTotal += coinValueArr[i] * coinsArr[i];
 	}
 	console.log(changeTotal);
