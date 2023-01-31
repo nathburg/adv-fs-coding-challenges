@@ -13,16 +13,39 @@
 //return i if reduced sum of first half equals reduced sum of second half
 //return -1 if we exit the loop
 
+// function equalSides(numbers) {
+// 	if (numbers.length === 0) return 0;
+// 	for (i = 0; i < numbers.length; ++i) {
+// 		const firstHalf = numbers.slice(0, i);
+// 		const secondHalf = numbers.slice(i + 1, numbers.length);
+// 		if (
+// 			firstHalf.reduce((prev, curr) => prev + curr, 0) ===
+// 			secondHalf.reduce((prev, curr) => prev + curr, 0)
+// 		)
+// 			return i;
+// 	}
+// 	return -1;
+// }
+
+////////////////////////
+
+// simpler idea with O(n) time
+//instead of reduce, we have two sums that are being modified
+//firstHalf and secondHalf get initialized beforehand
+//firstHalf initializes as 0
+//secondHalf initializes as the sum of all the elts in the array minus first elt
+//add value at index i-1 to firstHalf
+//subtract value at index from secondHalf
+
 function equalSides(numbers) {
-	if (numbers.length === 0) return 0;
-	for (i = 0; i < numbers.length; ++i) {
-		const firstHalf = numbers.slice(0, i);
-		const secondHalf = numbers.slice(i + 1, numbers.length);
-		if (
-			firstHalf.reduce((prev, curr) => prev + curr, 0) ===
-			secondHalf.reduce((prev, curr) => prev + curr, 0)
-		)
-			return i;
+	let firstHalf = 0;
+	let secondHalf =
+		numbers.reduce((prev, curr) => prev + curr, 0) - numbers[0];
+	if (numbers.length === 0 || firstHalf === secondHalf) return 0;
+	for (i = 1; i < numbers.length; ++i) {
+		firstHalf += numbers[i - 1];
+		secondHalf -= numbers[i];
+		if (firstHalf === secondHalf) return i;
 	}
 	return -1;
 }
